@@ -40,3 +40,5 @@ export const news = [
         comments: 4,
     },
 ]
+
+export default news;
