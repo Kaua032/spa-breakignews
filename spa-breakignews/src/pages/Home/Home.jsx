@@ -1,3 +1,10 @@
+import { Navbar } from '../../components/Navbar/Navbar'
+
 export default function Home(){
-    return <h1>Olá Home</h1>
+    return (
+        <> { /* Fragment */}
+            <Navbar />
+            <h1>Olá Home</h1>
+        </>
+    ) 
 };
