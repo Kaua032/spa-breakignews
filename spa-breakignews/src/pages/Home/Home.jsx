@@ -1,4 +1,5 @@
 import { Navbar } from '../../components/Navbar/Navbar'
+import { Button } from '../../components/Navbar/NavbarStyled'
 
 export default function Home(){
     return (
