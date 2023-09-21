@@ -1,11 +1,14 @@
-import { Navbar } from '../../components/Navbar/Navbar'
-import { Button } from '../../components/Navbar/NavbarStyled'
+import { Card } from "../../components/Cards/Card";
+import { Navbar } from "../../components/Navbar/Navbar";
+import { news } from "../../Datas.js";
 
-export default function Home(){
-    return (
-        <> { /* Fragment */}
-            <Navbar />
-            <h1>Olá Home</h1>
-        </>
-    ) 
-};
+export default function Home() {
+  return (
+    <>
+      <Navbar />
+      {news.map((item, index) => (
+        <Card key={index} news={item} />
+      ))}
+    </>
+  );
+}
