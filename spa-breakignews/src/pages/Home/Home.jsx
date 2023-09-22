@@ -2,7 +2,7 @@ import { Card } from "../../components/Cards/Card";
 import { Navbar } from "../../components/Navbar/Navbar";
 import { getAllNews } from "../../services/newsServices";
 import { HomeBody } from "./HomeStyled";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export default function Home() {
   const [news, setNews] = useState([]);
@@ -11,6 +11,10 @@ export default function Home() {
     const response = await getAllNews();
     setNews(response.data.results);
   }
+
+  useEffect(() => {
+    findAllNews();
+  }, [])
 
   // findAllNews();
 

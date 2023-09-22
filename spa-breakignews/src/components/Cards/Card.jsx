@@ -1,3 +1,4 @@
+import { TextLimit } from "../TextLimit/TextLimit";
 import { CardBody, CardContainer, CardFooter } from "./CardStyle";
 
 export function Card({ title, text, banner, likes, comments }) {
@@ -6,16 +7,16 @@ export function Card({ title, text, banner, likes, comments }) {
       <CardBody>
         <div>
           <h2>{title}</h2>
-          <p>{text}</p>
+          <img src={banner} alt="Imagem" />
         </div>
-        <img src={banner} alt="Imagem" />
+        <TextLimit text={text} limit={150}/>
       </CardBody>
       <CardFooter>
         <div>
           <i className="bi bi-hand-thumbs-up"></i>
           <span>{likes}</span>
         </div>
-        
+
         <div>
           <i className="bi bi-chat"></i>
           <span>{comments}</span>
