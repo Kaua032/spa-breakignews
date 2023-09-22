@@ -26,6 +26,7 @@ export const CardBody = styled.article`
         width: 30%;
         object-fit: cover;
         object-position: center;
+        border-radius: 0 0.3rem 0.3rem 0;
     }
 `
 export const CardFooter = styled.article`

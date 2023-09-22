@@ -1,24 +1,24 @@
 import { CardBody, CardContainer, CardFooter } from "./CardStyle";
 
-export function Card({ news }) {
+export function Card({ title, text, banner, likes, comments }) {
   return (
     <CardContainer>
       <CardBody>
         <div>
-          <h2>{news.title}</h2>
-          <p>{news.text}</p>
+          <h2>{title}</h2>
+          <p>{text}</p>
         </div>
-        <img src={news.image} alt="Imagem" />
+        <img src={banner} alt="Imagem" />
       </CardBody>
       <CardFooter>
         <div>
           <i className="bi bi-hand-thumbs-up"></i>
-          <span>{news.likes}</span>
+          <span>{likes}</span>
         </div>
         
         <div>
           <i className="bi bi-chat"></i>
-          <span>{news.comments}</span>
+          <span>{comments}</span>
         </div>
       </CardFooter>
     </CardContainer>

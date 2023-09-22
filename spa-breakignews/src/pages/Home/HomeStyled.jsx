@@ -6,4 +6,5 @@ export const HomeBody = styled.section`
   grid-gap: 1rem;
   margin: 0 auto;
   width: 80%;
+  margin-top: 1rem;
 `;
