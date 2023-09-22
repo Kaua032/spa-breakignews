@@ -1,15 +1,15 @@
 import { Card } from "../../components/Cards/Card";
 import { Navbar } from "../../components/Navbar/Navbar";
-import { news } from "../../Datas.js";
 import { getAllNews } from "../../services/newsServices";
 import { HomeBody } from "./HomeStyled";
 
 export default function Home() {
 
+  let news;
+
   async function findAllNews() {
     const response = await getAllNews();
-
-    console.log(response);
+    news = response.data.results
   } 
 
   findAllNews();
