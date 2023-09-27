@@ -1,3 +1,7 @@
+import { useParams } from "react-router-dom";
+
 export default function Search() {
-  return <h1>Search</h1>;
+  const { title } = useParams();
+
+  return <h1>{title}</h1>;
 }
