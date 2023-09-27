@@ -6,3 +6,8 @@ export function getAllNews() {
     const response = axios.get(`${baseURL}/news/all?limit=10&offset=0`);
     return response;
 };
+
+export function getTopNews() {
+    const response = axios.get(`${baseURL}/news/top`);
+    return response;
+};
