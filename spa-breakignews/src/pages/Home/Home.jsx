@@ -1,5 +1,5 @@
+import Cookies from "js-cookie";
 import { Card } from "../../components/Cards/Card";
-import { Navbar } from "../../components/Navbar/Navbar";
 import { getAllNews, getTopNews } from "../../services/newsServices";
 import { HomeBody, HomeHeader } from "./HomeStyled";
 import { useEffect, useState } from "react";
@@ -18,6 +18,7 @@ export default function Home() {
 
   useEffect(() => {
     findNews();
+    console.log(Cookies.get("token"));
   }, []);
 
   // findAllNews();

@@ -7,6 +7,8 @@ import { signinSchema } from "../../schemas/signinSchema";
 import { ErrorSpan } from "../../components/Navbar/NavbarStyled";
 import { signupSchema } from "../../schemas/signupSchema";
 import { signup } from "../../services/userService";
+import Cookies from "js-cookie";
+import { useNavigate } from "react-router-dom";
 
 export function Authentication() {
   const {
@@ -29,10 +31,13 @@ export function Authentication() {
     console.log(data);
   }
 
+  const navigate = useNavigate()
+
   async function upHandleSubmit(data) {
     try {
       const response = await signup(data);
-      console.log(response);
+      Cookies.set("token", response.data.token, { expires: 1 });
+      navigate('/')
     } catch (error) {
       console.log(error);
     }
