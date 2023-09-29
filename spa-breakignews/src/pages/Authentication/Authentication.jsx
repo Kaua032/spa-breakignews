@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { signinSchema } from "../../schemas/signinSchema";
 import { ErrorSpan } from "../../components/Navbar/NavbarStyled";
 import { signupSchema } from "../../schemas/signupSchema";
-import { signup } from "../../services/userService";
+import { signin, signup } from "../../services/userService";
 import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
@@ -27,8 +27,14 @@ export function Authentication() {
     resolver: zodResolver(signinSchema),
   });
 
-  function inHandleSubmit(data) {
-    console.log(data);
+  async function inHandleSubmit(data) {
+    try {
+      const response = await signin(data);
+      Cookies.set("token", response.data.token, { expires: 1 });
+      navigate('/')
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   const navigate = useNavigate()
