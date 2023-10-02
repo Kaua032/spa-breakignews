@@ -1,6 +1,12 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
 import logo from "../../images/LogoBN.png";
-import { ImageLogo, InputSpace, Nav, ErrorSpan, UserLoggedSpace } from "./NavbarStyled";
+import {
+  ImageLogo,
+  InputSpace,
+  Nav,
+  ErrorSpan,
+  UserLoggedSpace,
+} from "./NavbarStyled";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { Button } from "../Button/Button";
@@ -19,7 +25,7 @@ export function Navbar() {
     resolver: zodResolver(searchSchema),
   });
   const navigate = useNavigate();
-  const [user, setUser ] = useState({});
+  const [user, setUser] = useState({});
 
   function onSearch(data) {
     const { title } = data;
@@ -36,12 +42,14 @@ export function Navbar() {
     }
   }
 
-  async function signout(){
-    
+  async function signout() {
+    Cookies.remove("token");
+    setUser(undefined);
+    navigate('/')
   }
 
   useEffect(() => {
-    if(Cookies.get("token")) findUserLogged();
+    if (Cookies.get("token")) findUserLogged();
   }, []);
 
   return (
@@ -66,7 +74,9 @@ export function Navbar() {
 
         {user ? (
           <UserLoggedSpace>
-            <h2>{user.name}</h2>
+            <Link to="/profile">
+              <h2>{user.name}</h2>
+            </Link>
             <i className="bi bi-box-arrow-right" onClick={signout}></i>
           </UserLoggedSpace>
         ) : (
